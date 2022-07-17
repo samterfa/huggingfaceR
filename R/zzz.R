@@ -27,9 +27,9 @@
       reticulate::conda_create(
         envname = huggingface_env,
         packages = c(
-          "keras",
+   #       "keras",
           "PyTorch",
-          "Tensorflow",
+    #      "Tensorflow",
           "transformers",
           "sentencepiece",
           "huggingface_hub"
