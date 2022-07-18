@@ -28,7 +28,7 @@
         envname = huggingface_env,
         packages = c(
    #       "keras",
-          "PyTorch",
+   #       "PyTorch",
     #      "Tensorflow",
           "transformers",
           "sentencepiece",
