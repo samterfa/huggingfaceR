@@ -1,6 +1,5 @@
 # Using suggestions from https://rstudio.github.io/reticulate/articles/package.html
-#.onLoad <- function(libname, pkgname) {
-install_python_depends <- function(){
+.onLoad <- function(libname, pkgname) {
 
   huggingface_env <- Sys.getenv("HUGGINGFACE_ENV")
 
@@ -28,14 +27,14 @@ install_python_depends <- function(){
 
       reticulate::conda_create(
         envname = huggingface_env,
-        packages = c(
-          #       "keras",
-          #       "PyTorch",
-          #      "Tensorflow",
-          "transformers",
-          "sentencepiece",
-          "huggingface_hub"
-        ),
+        #  packages = c(
+        #       "keras",
+        #       "PyTorch",
+        #      "Tensorflow",
+        #   "transformers",
+        #  "sentencepiece",
+        # "huggingface_hub"
+        #),
         conda = paste0(reticulate::miniconda_path(), "/condabin/conda")
       )
 
@@ -55,6 +54,31 @@ install_python_depends <- function(){
 
   invisible()
 }
+
+#' Install Python Dependencies
+#'
+#' Installs python packages needed to run huggingfaceR functions
+#' @export
+install_python_depends <- function(){
+
+  huggingface_env <- Sys.getenv("HUGGINGFACE_ENV")
+
+  if (huggingface_env == "") {
+    huggingface_env <- "huggingfaceR"
+  }
+
+  reticulate::conda_install(
+    huggingface_env,
+    packages = c(
+      #       "keras",
+      #       "PyTorch",
+      #      "Tensorflow",
+      "transformers",
+      "sentencepiece",
+      "huggingface_hub"
+    ))
+}
+
 
 .onUnload <- function(libpath) {
 
