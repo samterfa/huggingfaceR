@@ -26,14 +26,14 @@
 
       reticulate::conda_create(
         envname = huggingface_env,
-        packages = c(
+     #   packages = c(
    #       "keras",
    #       "PyTorch",
     #      "Tensorflow",
-          "transformers",
-          "sentencepiece",
-          "huggingface_hub"
-        ),
+     #     "transformers",
+     #     "sentencepiece",
+     #     "huggingface_hub"
+      #  ),
         conda = paste0(reticulate::miniconda_path(), "/condabin/conda")
       )
 
