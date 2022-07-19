@@ -27,14 +27,6 @@
 
       reticulate::conda_create(
         envname = huggingface_env,
-        #  packages = c(
-        #       "keras",
-        #       "PyTorch",
-        #      "Tensorflow",
-        #   "transformers",
-        #  "sentencepiece",
-        # "huggingface_hub"
-        #),
         conda = paste0(reticulate::miniconda_path(), "/condabin/conda")
       )
 
@@ -59,7 +51,10 @@
 #'
 #' Installs python packages needed to run huggingfaceR functions
 #' @export
-install_python_depends <- function(){
+hf_python_depends <- function(packages = c("transformers",
+                                           "sentencepiece",
+                                           "huggingface_hub",
+                                           "sentence-transformers")){
 
   huggingface_env <- Sys.getenv("HUGGINGFACE_ENV")
 
@@ -69,14 +64,7 @@ install_python_depends <- function(){
 
   reticulate::conda_install(
     huggingface_env,
-    packages = c(
-      #       "keras",
-      #       "PyTorch",
-      #      "Tensorflow",
-      "transformers",
-      "sentencepiece",
-      "huggingface_hub"
-    ))
+    packages = packages)
 }
 
 
