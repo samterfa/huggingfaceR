@@ -275,6 +275,8 @@ hf_load_sentence_transformers <- function() {
         env <- get_current_python_environment()
 
         stop(glue::glue("\nMissing Python library! Run hf_python_depends('sentence-transformers') to install the missing library, or run hf_python_depends() to install all needed libraries.\n", .trim = FALSE))
+      }else{
+        stop(glue::glue(result$message))
       }
     }
   }
