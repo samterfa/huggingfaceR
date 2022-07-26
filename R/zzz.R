@@ -57,11 +57,14 @@
 #' @param packages Python libraries needed for local model usage. \cr
 #' Defaults to transformers, sentencepiece, huggingface_hub, datasets, and sentence-transformers.
 #' @export
-hf_python_depends <- function(packages = c("transformers",
-                                           "sentencepiece",
-                                           "huggingface_hub",
-                                           "datasets",
-                                           "sentence-transformers")){
+hf_python_depends <- function(packages =
+                                c(
+                               #   "transformers",
+                                #  "sentencepiece",
+                                #  "huggingface_hub",
+                                  "datasets",
+                                  "sentence-transformers"
+                                )){
 
   huggingface_env <- Sys.getenv("HUGGINGFACE_ENV")
 
