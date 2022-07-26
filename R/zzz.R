@@ -59,9 +59,9 @@
 #' @export
 hf_python_depends <- function(packages =
                                 c(
-                               #   "transformers",
-                                #  "sentencepiece",
-                                #  "huggingface_hub",
+                                  #   "transformers",
+                                  #  "sentencepiece",
+                                  #  "huggingface_hub",
                                   "datasets",
                                   "sentence-transformers"
                                 )){
@@ -74,7 +74,8 @@ hf_python_depends <- function(packages =
 
   reticulate::conda_install(
     huggingface_env,
-    packages = packages)
+    packages = packages,
+    pip = T)
 }
 
 
